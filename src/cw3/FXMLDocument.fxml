@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane blendMode="MULTIPLY" prefHeight="629.0" prefWidth="1167.0" style="-fx-border-radius: 25; -fx-border-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cw3.FXMLDocumentController">
+    <top>
+    <VBox prefHeight="0.0" prefWidth="1229.0" spacing="10">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+        <HBox>
+        <Button onAction="#loadFile" prefHeight="25.0" prefWidth="94.0" text="Load File" />
+            <Region prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         <Button alignment="CENTER" onAction="#savePNG" text="Save PNG" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+         </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="1153.0" spacing="10">
+            <Label text="Select bin method:" />
+            <ChoiceBox fx:id="binChoice" />
+            <Button onAction="#plotHistogram" text="Plot Histogram" />
+        </HBox>
+
+    </VBox>
+    </top>
+
+    <left>
+        <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="447.0" prefWidth="279.0" spacing="6">
+            <padding>
+                <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
+            </padding>
+            <HBox spacing="10">
+            <Label alignment="TOP_RIGHT" text="Number of bins (k):">
+               <HBox.margin>
+                  <Insets bottom="25.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="kLabel" text="–" />
+            </HBox>
+
+            <Label prefHeight="27.0" prefWidth="267.0" text="Statistics">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font></Label>
+            <HBox spacing="5">
+            <Label text="Mean:" />
+            <Label fx:id="meanLabel" />
+            </HBox>
+            <HBox spacing="5">
+            <Label text="Variance:" />
+            <Label fx:id="varianceLabel" />
+            </HBox>
+            <HBox spacing="5">
+            <Label text="Median:" />
+            <Label fx:id="medianLabel" />
+            </HBox>
+            <HBox spacing="5">
+            <Label text="Std Dev:" />
+            <Label fx:id="stdLabel" />
+            </HBox>
+
+            <Label prefHeight="27.0" prefWidth="369.0" text="Gaussian Fit">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+            <VBox.margin>
+               <Insets top="25.0" />
+            </VBox.margin></Label>
+            <HBox spacing="5">
+            <Label text="Alpha:" />
+            <Label fx:id="alphaLabel" />
+            </HBox>
+            <HBox spacing="5">
+            <Label text="Mu:" />
+            <Label fx:id="muLabel" />
+            </HBox>
+            <HBox spacing="5">
+            <Label text="Sigma:" />
+            <Label fx:id="sigmaLabel" />
+            </HBox>
+         <BorderPane.margin>
+            <Insets bottom="50.0" top="50.0" />
+         </BorderPane.margin>
+        </VBox>
+    </left>
+   <center>
+      <BarChart fx:id="histogramChart" alternativeColumnFillVisible="true" barGap="1.0" blendMode="MULTIPLY" categoryGap="2.0" centerShape="false" legendSide="TOP" legendVisible="false" prefHeight="522.0" prefWidth="479.0" scaleShape="false" style="-fx-background-color: white;" title="Histogram">
+        <xAxis>
+          <CategoryAxis label="Measurement data" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Normalised dat count" side="LEFT" />
+        </yAxis>
+         <effect>
+            <Blend />
+         </effect>
+         <BorderPane.margin>
+            <Insets bottom="25.0" />
+         </BorderPane.margin>
+      </BarChart>
+   </center>
+   <right>
+      <LineChart fx:id="pdfChart" alternativeColumnFillVisible="true" blendMode="MULTIPLY" centerShape="false" legendSide="TOP" legendVisible="false" prefHeight="522.0" prefWidth="402.0" scaleShape="false" style="-fx-background-color: white;" title="Fitted PDF">
+    <xAxis>
+        <NumberAxis label="Measured value (δ)" />
+    </xAxis>
+    <yAxis>
+        <NumberAxis label="Probability density" prefHeight="423.0" prefWidth="60.0" style="-fx-background-color: white;" />
+    </yAxis>
+         <effect>
+            <Blend />
+         </effect>
+         <BorderPane.margin>
+            <Insets bottom="25.0" right="25.0" />
+         </BorderPane.margin>
+    </LineChart>
+   </right>
+    
+       
+        
+   
+
+</BorderPane>
