@@ -32,3 +32,10 @@ report/     - Coursework report
 
 ## Notes
 This project was developed as part of university coursework. The implementation and diagrams were created and verified by the author to demonstrate understanding of JavaFX, GUI event handling, and software design principles.
+
+## Versions Used
+- Java: JDK 8 (u111)
+- JavaFX: JavaFX 8
+- Apache Commons Math: 3.6.1
+- IDE: NetBeans 8.x
+- Operating System: Windows / macOS
